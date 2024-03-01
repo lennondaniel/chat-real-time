@@ -1,11 +1,27 @@
 version: '3.7'
 
 services:
+  app:
+    container_name: chat-real-time-app
+    tty: true
+    build:
+      context: ./app/.
+      dockerfile: Dockerfile
+    volumes:
+      - ./app/.:/usr/src/app
+      - /usr/src/app/node_modules
+    env_file:
+      - .env
+    ports:
+      - ${VITE_APP_PORT}:${VITE_APP_PORT}
+    networks:
+      - chat-real-time
+
   api:
     container_name: 'chat-real-time-api'
     build:
       context: ./api/.
-      target: development
+      dockerfile: Dockerfile
     volumes:
       - ./api/.:/usr/src/app
     ports:
