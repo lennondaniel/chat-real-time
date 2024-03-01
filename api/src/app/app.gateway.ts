@@ -8,7 +8,7 @@ import {
 } from '@nestjs/websockets';
 import { AppService } from "../app.service";
 import { Server, Socket } from "socket.io";
-import {Chat} from "../chat/chat.entity";
+import { Chat } from "../chat/chat.entity";
 
 @WebSocketGateway({
   cors: {
@@ -21,10 +21,10 @@ export class AppGateway implements OnGatewayInit, OnGatewayConnection, OnGateway
 
   @WebSocketServer()
   server: Server;
-  @SubscribeMessage('message')
+  @SubscribeMessage('sendMessage')
   async handleMessage(client: Socket, payload: Chat): Promise<void> {
     await this.appService.createMessage(payload);
-    this.server.emit('recMessage', payload);
+    this.server.to(String(payload?.roomId)).emit('recMessage', payload);
   }
   afterInit(server: any): any {
     console.log(server);
@@ -35,6 +35,8 @@ export class AppGateway implements OnGatewayInit, OnGatewayConnection, OnGateway
   }
 
   handleConnection(client: Socket, ...args: any[]) {
-    console.log(`Connected ${client.id}`);
+    client.on("joinRoom", (roomId) => {
+      client.join(roomId);
+    })
   }
 }

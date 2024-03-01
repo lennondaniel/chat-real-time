@@ -5,12 +5,15 @@ export class Chat {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @Column()
-    name: string;
+    @Column({name: 'room_id'})
+    roomId: number;
 
-    @Column({unique: true})
+    @Column({name: 'user_name'})
+    userName: string;
+
+    @Column()
     message: string;
 
-    @CreateDateColumn()
+    @CreateDateColumn({name: 'created_at'})
     createdAt: Date;
 }

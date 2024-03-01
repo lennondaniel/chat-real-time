@@ -1,0 +1,102 @@
+
+.chat_div {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.chat_border {
+    width: 70vw;
+    height: 80vh;
+    background-color: #FFFFFF;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chat_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.chat_footer form {
+    height: 4.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.chat_input {
+    background-color: #EDEDF9;
+    border-radius: 10px;
+    margin-left: 10px;
+    height: 2.5rem;
+    width: 60vw;
+    padding: 5px 10px 5px 15px;
+    border: none;
+}
+.chat_input:focus {
+    outline: none;
+}
+.chat_button {
+    height: 3rem;
+    width: 75px;
+    color: #FFFFFF;
+    background-color: #1d76db;
+    border: 1px solid #1d76db;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+.chatProfileRight {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-direction: row-reverse;
+    margin-bottom: 5px;
+    margin-right: 20px;
+}
+
+.chatProfileRight p{
+    background-color: #EDEDF9;
+    width: auto;
+    padding: 15px;
+    border-radius: 10px;
+    color: #3c4552;
+    font-size: 14px;
+}
+
+.chatProfileLeft {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+
+.chatProfileLeft p{
+    background-color: #989AD7;
+    width: auto;
+    padding: 15px;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+.chatProfileSpan {
+    background-color: #1d76db;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    border: 1px solid #1d76db;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+}

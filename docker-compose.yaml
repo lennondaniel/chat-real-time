@@ -12,6 +12,8 @@ services:
       - /usr/src/app/node_modules
     env_file:
       - .env
+    environment:
+      - CHOKDIR_USERPOOLING=true
     ports:
       - ${VITE_APP_PORT}:${VITE_APP_PORT}
     networks:
