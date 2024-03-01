@@ -6,6 +6,7 @@ import {TypeOrmModule} from "@nestjs/typeorm";
 import { ChatModule } from './chat/chat.module';
 import configuration from "./config/configuration";
 import { Chat } from "./chat/chat.entity";
+import { AppGateway } from './app/app.gateway';
 
 @Module({
   imports: [
@@ -32,6 +33,6 @@ import { Chat } from "./chat/chat.entity";
       ChatModule
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, AppGateway],
 })
 export class AppModule {}
